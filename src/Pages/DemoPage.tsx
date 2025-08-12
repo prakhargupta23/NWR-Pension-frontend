@@ -48,6 +48,10 @@ import AgeBracketGraph from "../Components/AgeBracketGraph";
 import { CsvModal } from "../modules/CsvModal";
 import { sqlService } from "../services/sqldata.service";
 import TopAppBar from "../modules/TopAppBar";
+import bg1 from "../assets/bg3.png";
+import ParticlesBackground from "../modules/ParticlesBackground";
+import train from '../assets/Train.png';
+
 Chart.register(...registerables);
 const MONTHS = [
   "January",
@@ -408,10 +412,20 @@ export default function PensionPortal() {
         height: "150vh", // Full viewport height
         display: "flex",
         flexDirection: "column",
-        backgroundColor: "#101319",
+        backgroundImage: `url(${bg1})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundAttachment: "fixed",
         alignItems: "center",
       }}
     >
+      <Box sx={{ mr: '20%',position: 'absolute', left: 0, right: 0, bottom: 0, display: 'flex', justifyContent: 'left', zIndex: 2, pointerEvents: 'none' }}>
+        <img src={train} alt="train" style={{ width: 600, opacity: 0.3, color: '#fff', filter: 'brightness(1) invert(1)', transform: 'scaleX(-1)' }} />
+      </Box>
+      {/* <ParticlesBackground /> */}
+      <ParticlesBackground />
+      
       <TopAppBar
         setDeleteModalOpen={(open) => setDeleteModalOpen(open)}
         deleteLoading={deleteLoading}
@@ -450,7 +464,7 @@ export default function PensionPortal() {
           <Grid
             item
             xs={12}
-            md={6}
+            md={7}
             sx={{
               display: "flex",
               flexDirection: "column",
@@ -476,28 +490,27 @@ export default function PensionPortal() {
                 value={categoryType}
                 onChange={handleDropdownChange}
                 sx={{
-                  background: "linear-gradient(90deg, #7B2FF7, #9F44D3)",
+                  background: "#fff",
                   borderRadius: "10px",
                   height: "40px",
                   padding: "12px",
                   fontWeight: "600",
-                  color: "#fff",
+                  color: "#111",
                   justifyContent: "space-between",
                   display: "flex",
                   alignItems: "center",
-
                   width: "197px",
                   fontFamily: "MyCustomFont,SourceSerif4_18pt",
                   marginBottom: "16px",
                   "& .MuiSelect-icon": {
-                    color: "#fff",
+                    color: "#111",
                   },
                 }}
                 MenuProps={{
                   PaperProps: {
                     sx: {
-                      backgroundColor: "#36314f", // Black background for dropdown
-                      color: "#fff", // White text color
+                      backgroundColor: "#fff",
+                      color: "#111",
                     },
                   },
                 }}
@@ -525,11 +538,10 @@ export default function PensionPortal() {
                 display: "flex",
                 height: "76vh",
                 flexDirection: "column",
-
                 borderRadius: "12px",
                 width: "100%",
                 justifyContent: "flex-start",
-                backgroundColor: "#161921",
+                backgroundColor: "rgba(22, 25, 33, 0.5)",
                 alignItems: "center",
                 border: "1px solid #B72BF8", // Ensures the border is visible
               }}
@@ -542,7 +554,7 @@ export default function PensionPortal() {
           <Grid
             item
             xs={12}
-            md={6}
+            md={5}
             sx={{
               display: "flex",
               flexDirection: "column",

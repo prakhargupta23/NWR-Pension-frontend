@@ -126,9 +126,9 @@ export default function TopAppBar({
           variant="contained"
           startIcon={<Upload />}
           sx={{
-            backgroundColor: "#222633",
-            color: "white",
-            "&:hover": { backgroundColor: "#222633" },
+            backgroundColor: "#fff",
+            color: "#111",
+            '&:hover': { backgroundColor: '#fff', color: '#111' },
             border: "1.5px solid rgba(255, 255, 255, 0.1)",
             borderRadius: "12px",
             p: "12px",
@@ -145,9 +145,9 @@ export default function TopAppBar({
           variant="contained"
           startIcon={<Upload />}
           sx={{
-            backgroundColor: "#222633",
-            color: "white",
-            "&:hover": { backgroundColor: "#222633" },
+            backgroundColor: "#fff",
+            color: "#111",
+            '&:hover': { backgroundColor: '#fff', color: '#111' },
             border: "1.5px solid rgba(255, 255, 255, 0.1)",
             borderRadius: "12px",
             p: "12px",
@@ -172,7 +172,7 @@ export default function TopAppBar({
       <AppBar
         position="static"
         sx={{
-          backgroundColor: "#101319",
+          background: 'linear-gradient(90deg, #253BAA 0%, #972481 100%)',
           height: "88px",
           display: "flex",
           flexDirection: "row",
@@ -249,9 +249,9 @@ export default function TopAppBar({
                         variant="contained"
                         startIcon={<Download />}
                         sx={{
-                          backgroundColor: "#222633",
-                          color: "white",
-                          "&:hover": { backgroundColor: "#222633" },
+                          backgroundColor: "#fff",
+                          color: "#111",
+                          '&:hover': { backgroundColor: '#fff', color: '#111' },
                           border: "1.5px solid rgba(255, 255, 255, 0.1)",
                           borderRadius: "12px",
                           p: "12px",
