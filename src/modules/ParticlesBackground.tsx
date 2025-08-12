@@ -55,13 +55,13 @@ const ParticlesBackground = () => {
                         },
                         particles: {
                             color: {
-                                value: "#ffffff",
+                                value: "rgba(255,255,255,0.1)",
                             },
                             links: {
-                                color: "#ffffff",
+                                color: "rgba(255,255,255,0.1)",
                                 distance: 150,
                                 enable: true,
-                                opacity: 0.5,
+                                opacity: 0.2,
                                 width: 1,
                             },
                             move: {
@@ -84,7 +84,7 @@ const ParticlesBackground = () => {
                                 value: 100,
                             },
                             opacity: {
-                                value: 0.5,
+                                value: 0.2,
                             },
                             shape: {
                                 type: "circle",

@@ -421,7 +421,7 @@ export default function PensionPortal() {
       }}
     >
       <Box sx={{ mr: '20%',position: 'absolute', left: 0, right: 0, bottom: 0, display: 'flex', justifyContent: 'left', zIndex: 2, pointerEvents: 'none' }}>
-        <img src={train} alt="train" style={{ width: 600, opacity: 0.3, color: '#fff', filter: 'brightness(1) invert(1)', transform: 'scaleX(-1)' }} />
+        <img src={train} alt="train" style={{ width: 600, opacity: 0.1, color: '#fff', filter: 'brightness(1) invert(1)', transform: 'scaleX(-1)' }} />
       </Box>
       {/* <ParticlesBackground /> */}
       <ParticlesBackground />
@@ -541,7 +541,7 @@ export default function PensionPortal() {
                 borderRadius: "12px",
                 width: "100%",
                 justifyContent: "flex-start",
-                backgroundColor: "rgba(22, 25, 33, 0.5)",
+                backgroundColor: "rgba(255, 255, 255, 0.2)",
                 alignItems: "center",
                 border: "1px solid #B72BF8", // Ensures the border is visible
               }}

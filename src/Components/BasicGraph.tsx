@@ -270,7 +270,7 @@ function BasicGraph({ type, reloadGraph }: any) {
           height: "100%",
           width: "96%",
           borderRadius: "10px",
-          backgroundColor: "#222633",
+          backgroundColor: "rgba(0, 0, 0, 0.7)",
           justifyContent: "flex-start",
 
           alignItems: "center",
