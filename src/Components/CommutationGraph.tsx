@@ -477,10 +477,10 @@ function CommutationGraph({ type, reloadGraph }: any) {
       </Paper>
       {selectedGraphTab === "Overview" ? (
         <>
-          <BottomDetailSection
+          {/* <BottomDetailSection
             loading={summaryLoading}
             summaryData={summaryData}
-          />
+          /> */}
         </>
       ) : null}
     </>

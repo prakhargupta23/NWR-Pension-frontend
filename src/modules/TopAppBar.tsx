@@ -210,7 +210,7 @@ export default function TopAppBar({
                     textTransform: "none",
                   }}
                 >
-                  NWR Finance & Accounts
+                  NWR Pension Dashboard
                 </Typography>
                 <Typography
                   variant="h6"

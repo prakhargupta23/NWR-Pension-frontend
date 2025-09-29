@@ -409,14 +409,13 @@ export default function PensionPortal() {
     <div
       style={{
         width: "100vw",
-        height: "150vh", // Full viewport height
+        height: "130vh",
         display: "flex",
         flexDirection: "column",
         backgroundImage: `url(${bg1})`,
-        backgroundSize: "cover",
+        backgroundSize: "100% 130vh", // Stretch exactly
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
         alignItems: "center",
       }}
     >
@@ -536,7 +535,7 @@ export default function PensionPortal() {
               elevation={3}
               sx={{
                 display: "flex",
-                height: "76vh",
+                height: "100vh",
                 flexDirection: "column",
                 borderRadius: "12px",
                 width: "100%",

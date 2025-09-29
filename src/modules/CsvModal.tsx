@@ -270,7 +270,7 @@ let count=0,cnt=0;
       );
 
       setSnackbarOpen(true);
-      setSnackbarMessage(response);
+      setSnackbarMessage(response?.message || "Uploaded successfully");
       console.log("Processed Data:", formattedDS);
     } catch (error: any) {
       setSnackbarOpen(true);

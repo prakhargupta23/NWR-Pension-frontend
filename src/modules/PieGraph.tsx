@@ -171,6 +171,7 @@ function PieGraph({
           marginLeft: "5%",
           marginRight: "5%",
           mt: 2,
+          pt: 2,
           mb: 2,
         }}
       >
@@ -209,7 +210,7 @@ function PieGraph({
           </Box>
         ))}
       </Box>
-      <ResponsiveContainer width="100%" height={isSmallScreen ? "55%" : "75%"}>
+      <ResponsiveContainer width="100%" height={isSmallScreen ? "60%" : "80%"}>
         {/* Reduced height */}
         <PieChart>
           <Pie
