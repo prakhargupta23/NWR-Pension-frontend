@@ -533,7 +533,7 @@ export default function ChatInterface({ fullNavBar, pageNmae }: any) {
                           sx={{
                             padding: "15px",
                             backgroundColor:
-                              msg.role === "user" ? "#8F8D8D" : "rgba(45, 150, 135, 0.7)",
+                              msg.role === "user" ? "#595959ff" : "rgba(45, 150, 135, 0.7)",
                             color: "#fff",
                             borderRadius: "10px",
                             maxWidth: "100%",
@@ -556,6 +556,7 @@ export default function ChatInterface({ fullNavBar, pageNmae }: any) {
                               justifyContent: "center",
                               width: "100%",
                               marginTop: "10px",
+                              // color: "#fff",
                             }}
                           >
                             <img
@@ -573,8 +574,8 @@ export default function ChatInterface({ fullNavBar, pageNmae }: any) {
                       {msg.role === "user" ? (
                         <IconButton
                           sx={{
-                            backgroundColor: "#000",
-                            color: "#000",
+                            backgroundColor: "#1E1E2E",
+                            color: "#fff",
                             width: "40px",
                             height: "40px",
                             borderRadius: "50%",
