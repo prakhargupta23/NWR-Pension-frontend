@@ -75,8 +75,12 @@ function AgeGraph({ type, reloadGraph }: any) {
           throw new Error("Internal Server Error");
         }
 
-        if (response) {
-          setData([...response.data]); // Store full data
+        // if (response) {
+        //   setData([...response.data]); // Store full data
+        // }
+
+        if(response?.data?.data){
+          setData(response.data.data); // store full data 
         }
       } catch (err: any) {
         if (retries > 0) {
@@ -90,7 +94,7 @@ function AgeGraph({ type, reloadGraph }: any) {
     };
 
     fetchDataWithRetry();
-  }, []);
+  }, [selectedDate]);    //added this selectedDate
 
   // Second useEffect: Filter data based on selectedDate, selectedTab, and selectedGraphTab
   useEffect(() => {
@@ -129,8 +133,13 @@ function AgeGraph({ type, reloadGraph }: any) {
           setPieData([]);
           return;
         }
+        // FORMAT DATA FOR PIE CHART ADDED SAFETY CHECKS FOR MISSING VALUES
+         const formattedPie = uniqueCategories.map((category) => ({
+             name: category,
+              value: monthData[category]?.[key] ?? 0,
+              }));
         // Overview mode has no valid data, setting empty array
-        setPieData([]);
+        setPieData(formattedPie);
       } else {
         // Format data for the Trend (Line Chart)
         const trendData = data.map((item) => {
