@@ -42,7 +42,7 @@ const allMonths = [
 function BasicGraph({ type, reloadGraph }: any) {
   const [selectedDate, setSelectedDate] = useState({
     month: "January",
-    year: new Date().getFullYear(),
+    year: 2025,
   });
 
   const [selectedTab, setSelectedTab] = useState("count"); // "amount" uses sum, "count" uses count
@@ -65,7 +65,7 @@ function BasicGraph({ type, reloadGraph }: any) {
     }
   };
 
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2025;
 
   const handleTabChange = (event: any, newTab: any) => {
     if (newTab !== null) {

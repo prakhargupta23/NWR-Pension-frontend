@@ -692,7 +692,6 @@ export default function PensionPortal() {
                       : handleButtonClickForSbi()
                   }
                   sx={{
-                    // backgroundColor: "#6200EA",
                     color: "white",
                     borderRadius: "8px",
                     fontWeight: 600,

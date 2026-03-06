@@ -13,7 +13,7 @@ export default function AgeFilter({ type }: any) {
 
   const [selectedDate, setSelectedDate] = useState({
     month: "January",
-    year: new Date().getFullYear(),
+    year: 2025,
   });
   const [selectedTab, setSelectedTab] = useState("amount");
   const [selectedGraphTab, setSelectedGraphTab] = useState("Trend"); // State for active tab

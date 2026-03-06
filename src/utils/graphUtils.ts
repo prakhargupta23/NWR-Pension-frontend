@@ -97,9 +97,8 @@ export const processTrendData = (
   } else if (categoryType === "Age") {
     // Sorting trendData by year and month
     processedData = trendData.sort((a, b) => {
-      // Extract year from "January/2025"
-      const [monthA, yearA] = a.month.split("/"); // ["January", "2025"]
-      const [monthB, yearB] = b.month.split("/"); // ["January", "2024"]
+      const [monthA, yearA] = a.month.split("/"); 
+      const [monthB, yearB] = b.month.split("/"); 
 
       // Convert years to numbers
       const yearNumA = parseInt(yearA);
