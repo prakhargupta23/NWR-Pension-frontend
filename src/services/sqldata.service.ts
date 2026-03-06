@@ -23,11 +23,14 @@ export const sqlService = {
 
 //// Funciton for fetching all the experiments ---------------------------/
 async function fetchBasicAndCommutationData(category: string) {
-  const response = await fetchWrapper.get(
-    `${config.apiUrl}/api/get-basic-data?category=${category}`
-  );
-  console.log("response from the sql service", response);
-  return response;
+  const url = `${config.apiUrl}/api/get-basic-data?category=${category}`;
+  const response = await fetch(url, {
+    // method: "GET",
+    // credentials: "include",
+  });
+  const data = await response.json();
+  console.log("response from the sql service", data);
+  return data;
 }
 //// Funciton for fetching all the experiments ---------------------------/
 async function fetchAgeData(month: string) {

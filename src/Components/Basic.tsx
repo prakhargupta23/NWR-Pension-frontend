@@ -8,10 +8,14 @@ export default function Basic({ type, reloadGraph }: any) {
 
   // Example state for parameters
   let categoryType = type;
+  type SelectedDate = {
+    month: string;
+    year: number;
+  };
 
-  const [selectedDate, setSelectedDate] = useState({
+  const [selectedDate, setSelectedDate] = useState<SelectedDate>({
     month: "January",
-    year: new Date().getFullYear(),
+    year: 2025,
   });
   const [selectedTab, setSelectedTab] = useState("amount");
   const [selectedGraphTab, setSelectedGraphTab] = useState("Overview"); // State for active tab

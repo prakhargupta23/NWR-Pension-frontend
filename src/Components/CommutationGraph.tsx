@@ -26,7 +26,7 @@ import { years } from "../utils/staticDataUtis";
 function CommutationGraph({ type, reloadGraph }: any) {
   const [selectedDate, setSelectedDate] = useState({
     month: "January",
-    year: new Date().getFullYear(),
+    year: 2025,
   });
   const [selectedTab, setSelectedTab] = useState("count"); // "amount" uses sum, "count" uses count
   const [selectedGraphTab, setSelectedGraphTab] = useState("Overview");

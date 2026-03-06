@@ -24,7 +24,7 @@ import { allMonths, getMonthYear } from "../utils/otherUtils";
 function AgeGraph({ type, reloadGraph }: any) {
   const [selectedDate, setSelectedDate] = useState({
     month: "January",
-    year: new Date().getFullYear(),
+    year: 2025,
   });
   const [selectedTab, setSelectedTab] = useState("count"); // "amount" uses sum, "count" uses count
   const [selectedGraphTab, setSelectedGraphTab] = useState("Overview");
@@ -47,7 +47,7 @@ function AgeGraph({ type, reloadGraph }: any) {
     }
   };
 
-  const currentYear = new Date().getFullYear();
+  const currentYear = 2025;
   const years = Array.from(
     { length: currentYear - 1950 + 1 },
     (_, i) => 1950 + i
@@ -79,7 +79,7 @@ function AgeGraph({ type, reloadGraph }: any) {
         //   setData([...response.data]); // Store full data
         // }
 
-        if(response?.data?.data){
+        if (response?.data?.data) {
           setData(response.data.data); // store full data 
         }
       } catch (err: any) {
@@ -134,10 +134,10 @@ function AgeGraph({ type, reloadGraph }: any) {
           return;
         }
         // FORMAT DATA FOR PIE CHART ADDED SAFETY CHECKS FOR MISSING VALUES
-         const formattedPie = uniqueCategories.map((category) => ({
-             name: category,
-              value: monthData[category]?.[key] ?? 0,
-              }));
+        const formattedPie = uniqueCategories.map((category) => ({
+          name: category,
+          value: monthData[category]?.[key] ?? 0,
+        }));
         // Overview mode has no valid data, setting empty array
         setPieData(formattedPie);
       } else {

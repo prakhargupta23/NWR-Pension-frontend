@@ -20,12 +20,4 @@ export const routes = createBrowserRouter([
     path: "/*",
     element: <LoginPage />,
   },
-  // {
-  //   path: "/pfa",
-  //   element: (
-  //     <PrivateRoute>
-  //       <PFAPage />
-  //     </PrivateRoute>
-  //   ),
-  // },
 ]);
