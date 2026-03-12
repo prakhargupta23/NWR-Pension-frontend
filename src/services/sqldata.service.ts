@@ -22,8 +22,12 @@ export const sqlService = {
 };
 
 //// Funciton for fetching all the experiments ---------------------------/
-async function fetchBasicAndCommutationData(category: string) {
-  const url = `${config.apiUrl}/api/get-basic-data?category=${category}`;
+async function fetchBasicAndCommutationData(category: string, month?: string, year?: string) {
+  console.log("fetchBasicAndCommutationData called");
+  let url = `${config.apiUrl}/api/get-basic-data?category=${category}`;
+  if (month) url += `&month=${month}`;
+  if (year) url += `&year=${year}`;
+
   const response = await fetch(url, {
     // method: "GET",
     // credentials: "include",
@@ -33,34 +37,74 @@ async function fetchBasicAndCommutationData(category: string) {
   return data;
 }
 //// Funciton for fetching all the experiments ---------------------------/
-async function fetchAgeData(month: string) {
-  return fetchWrapper.get(`${config.apiUrl}/api/get-age-data`);
+async function fetchAgeData(month?: string, year?: string) {
+  let url = `${config.apiUrl}/api/get-age-data`;
+  const params = [];
+  if (month) params.push(`month=${month}`);
+  if (year) params.push(`year=${year}`);
+  if (params.length > 0) url += `?${params.join("&")}`;
+
+  return fetchWrapper.get(url);
 }
 //// Funciton for fetching all the experiments ---------------------------/
-async function fetchNewPensionerData() {
-  return fetchWrapper.get(`${config.apiUrl}/api/get-newPensioner-data`);
+async function fetchNewPensionerData(month?: string, year?: string) {
+  let url = `${config.apiUrl}/api/get-newPensioner-data`;
+  const params = [];
+  if (month) params.push(`month=${month}`);
+  if (year) params.push(`year=${year}`);
+  if (params.length > 0) url += `?${params.join("&")}`;
+
+  return fetchWrapper.get(url);
 }
 //// Funciton for fetching all the experiments ---------------------------/
-async function fetchStoppedPensionerData() {
-  return fetchWrapper.get(`${config.apiUrl}/api/get-stoppedPensioner-data`);
+async function fetchStoppedPensionerData(month?: string, year?: string) {
+  let url = `${config.apiUrl}/api/get-stoppedPensioner-data`;
+  const params = [];
+  if (month) params.push(`month=${month}`);
+  if (year) params.push(`year=${year}`);
+  if (params.length > 0) url += `?${params.join("&")}`;
+
+  return fetchWrapper.get(url);
 }
 //// Funciton for fetching all the experiments ---------------------------/
-async function fetchActivePensionerData() {
-  return fetchWrapper.get(`${config.apiUrl}/api/get-activePensioners-data`);
+async function fetchActivePensionerData(month?: string, year?: string) {
+  let url = `${config.apiUrl}/api/get-activePensioners-data`;
+  const params = [];
+  if (month) params.push(`month=${month}`);
+  if (year) params.push(`year=${year}`);
+  if (params.length > 0) url += `?${params.join("&")}`;
+
+  return fetchWrapper.get(url);
 }
 //// Funciton for fetching all the experiments ---------------------------/
-async function fetchFamilyPensionTransitionData() {
-  return fetchWrapper.get(
-    `${config.apiUrl}/api/get-familyTransitionPensioners-data`
-  );
+async function fetchFamilyPensionTransitionData(month?: string, year?: string) {
+  let url = `${config.apiUrl}/api/get-familyTransitionPensioners-data`;
+  const params = [];
+  if (month) params.push(`month=${month}`);
+  if (year) params.push(`year=${year}`);
+  if (params.length > 0) url += `?${params.join("&")}`;
+
+  return fetchWrapper.get(url);
 }
 //// Funciton for fetching all the experiments ---------------------------/
-async function fetchFamilyPensionData() {
-  return fetchWrapper.get(`${config.apiUrl}/api/get-family-pension`);
+async function fetchFamilyPensionData(month?: string, year?: string) {
+  let url = `${config.apiUrl}/api/get-family-pension`;
+  const params = [];
+  if (month) params.push(`month=${month}`);
+  if (year) params.push(`year=${year}`);
+  if (params.length > 0) url += `?${params.join("&")}`;
+
+  return fetchWrapper.get(url);
 }
 //// Funciton for fetching all the experiments ---------------------------/
-async function fetchAgeBracketData() {
-  return fetchWrapper.get(`${config.apiUrl}/api/get-agebracketgraph-data`);
+async function fetchAgeBracketData(month?: string, year?: string) {
+  let url = `${config.apiUrl}/api/get-agebracketgraph-data`;
+  const params = [];
+  if (month) params.push(`month=${month}`);
+  if (year) params.push(`year=${year}`);
+  if (params.length > 0) url += `?${params.join("&")}`;
+
+  return fetchWrapper.get(url);
 }
 
 //// Funciton for fetching all the experiments ---------------------------/
@@ -70,7 +114,7 @@ async function downloadCsvData() {
   console.log("downloadDynamicCsvData called");
   const username = getUserData().username;
   console.log("Username:", username);
-  return fetchWrapper.postZip(`${config.apiUrl}/api/download-csv-data`, {username});
+  return fetchWrapper.postZip(`${config.apiUrl}/api/download-csv-data`, { username });
 }
 
 //// Funciton for deleting graph data ---------------------------/

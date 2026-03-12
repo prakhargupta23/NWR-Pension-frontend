@@ -54,7 +54,8 @@ function FamilyPensionTransitionGraph({ type, reloadGraph }: any) {
   const { data, loading } = useFetchDataForPensionWithRetry({
     service: sqlService,
     method: "fetchFamilyPensionTransitionData",
-    dependencies: [reloadGraph],
+    params: [(allMonths.indexOf(selectedDate.month) + 1).toString(), selectedDate.year.toString()],
+    dependencies: [selectedDate],
   });
 
   // Second useEffect: Filter data based on selectedDate, selectedTab, and selectedGraphTab

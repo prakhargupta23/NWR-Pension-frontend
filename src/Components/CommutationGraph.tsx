@@ -58,8 +58,8 @@ function CommutationGraph({ type, reloadGraph }: any) {
   const { data, loading } = useFetchDataForPensionWithRetry({
     service: sqlService,
     method: "fetchBasicAndCommutationData",
-    params: ["commutation"], // this is the optional argument
-    dependencies: [], // or add reloadGraph if needed
+    params: ["commutation", (allMonths.indexOf(selectedDate.month) + 1).toString(), selectedDate.year.toString()],
+    dependencies: [selectedDate],
   });
 
   // Second useEffect: Filter data based on selectedDate, selectedTab, and selectedGraphTab

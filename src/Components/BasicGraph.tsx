@@ -75,8 +75,8 @@ function BasicGraph({ type, reloadGraph }: any) {
   const { data, loading } = useFetchDataForPensionWithRetry({
     service: sqlService,
     method: "fetchBasicAndCommutationData",
-    params: ["basic"], // this is the optional argument
-    dependencies: [], // or add reloadGraph if needed
+    params: ["basic", (allMonths.indexOf(selectedDate.month) + 1).toString(), selectedDate.year.toString()],
+    dependencies: [selectedDate],
   });
 
   // Second useEffect: Filter data based on selectedDate, selectedTab, and selectedGraphTab
