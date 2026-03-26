@@ -17,9 +17,10 @@ import {
 import { sqlService } from "../services/sqldata.service";
 import PieGraph from "../modules/PieGraph";
 import TrendGraph from "../modules/TrendGraph";
-import BottomDetailSection from "../modules/BottomDetailSection";
+// import BottomDetailSection from "../modules/BottomDetailSection";
 import { useSummaryQuery } from "../CustomHooks/CustomSummaryQueryHook";
 import { allMonths, getMonthYear } from "../utils/otherUtils";
+
 
 function AgeGraph({ type, reloadGraph }: any) {
   const [selectedDate, setSelectedDate] = useState({
@@ -63,11 +64,14 @@ function AgeGraph({ type, reloadGraph }: any) {
       setLoading(true);
 
       try {
-        const response = await sqlService.fetchAgeData(
-          (allMonths.indexOf(selectedDate.month) + 1).toString(),
-          selectedDate.year.toString()
+        const selectedMonthYear = getMonthYear(
+          selectedDate.month,
+          selectedDate.year
         );
-        console.log(response);
+
+        const response = await sqlService.fetchAgeData();
+        console.log("response from the age graph", response);
+        console.log("response from the age graph56", response.data);
 
         if (response?.status === 500) {
           throw new Error("Internal Server Error");
@@ -76,8 +80,10 @@ function AgeGraph({ type, reloadGraph }: any) {
         // if (response) {
         //   setData([...response.data]); // Store full data
         // }
-
+        console.log("response from the age graph5", response.data);
         if (response?.data) {
+          console.log("")
+          console.log("response from the age graph2", response.data.data);
           setData(response.data); // store full data 
         }
       } catch (err: any) {
