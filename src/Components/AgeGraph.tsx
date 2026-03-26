@@ -77,8 +77,8 @@ function AgeGraph({ type, reloadGraph }: any) {
         //   setData([...response.data]); // Store full data
         // }
 
-        if (response?.data?.data) {
-          setData(response.data.data); // store full data 
+        if (response?.data) {
+          setData(response.data); // store full data 
         }
       } catch (err: any) {
         if (retries > 0) {
