@@ -63,12 +63,10 @@ function AgeGraph({ type, reloadGraph }: any) {
       setLoading(true);
 
       try {
-        const selectedMonthYear = getMonthYear(
-          selectedDate.month,
-          selectedDate.year
+        const response = await sqlService.fetchAgeData(
+          (allMonths.indexOf(selectedDate.month) + 1).toString(),
+          selectedDate.year.toString()
         );
-
-        const response = await sqlService.fetchAgeData(selectedMonthYear);
         console.log(response);
 
         if (response?.status === 500) {

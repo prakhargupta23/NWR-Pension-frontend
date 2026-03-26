@@ -169,7 +169,7 @@ export const CsvModal: React.FC<CsvModalProps> = ({
 
       const ds: DSRow[] = await parseCSV<DSRow>(files.sbiDebitScroll);
       const filteredDS = ds.filter((row) =>
-        Object.values(row).some((value) => value.trim() !== "")
+        Object.values(row).some((value: any) => String(value || "").trim() !== "")
       );
 
       const unlinked: { "Scroll PPO No": string }[] = await parseCSV(
@@ -182,26 +182,26 @@ export const CsvModal: React.FC<CsvModalProps> = ({
 
       const unlinkedSet = new Set(
         unlinked
-          .map((row) => row["Scroll PPO No"].trim())
+          .map((row) => String(row["Scroll PPO No"] || "").trim())
           .filter((ppo) => ppo !== "")
       );
       const unlinkedSet1 = unlinkedSet; // Keep a copy for debugging
       console.log("unlinked set",unlinkedSet);
 
-      const basicMap = new Map(
+      const basicMap = new Map<string, string>(
         basic
           .map(
             (row) =>
-              [row["PPO Number"].trim(), row["Basic Diff"]] as [string, string]
+              [String(row["PPO Number"] || "").trim(), String(row["Basic Diff"] || "")] as [string, string]
           )
           .filter(([ppo]) => ppo !== "")
       );
 
-      const commutationMap = new Map(
+      const commutationMap = new Map<string, string>(
         commutation
           .map(
             (row) =>
-              [row["Bank PPO Number"].trim(), row["Commutation Diff"]] as [
+              [String(row["Bank PPO Number"] || "").trim(), String(row["Commutation Diff"] || "")] as [
                 string,
                 string
               ]
@@ -212,8 +212,8 @@ let count=0,cnt=0;
       console.log("filteredds", filteredDS);
 
       const processedDS = filteredDS.map((row) => {
-        const newPPO = row["New PPO no."].trim();
-        const oldPPO = row["Old PPO no."].trim();
+        const newPPO = String(row["New PPO no."] || "").trim();
+        const oldPPO = String(row["Old PPO no."] || "").trim();
 
         let basicCategory = "match";
         let basicMismatch: string | null = null;
@@ -376,6 +376,11 @@ let count=0,cnt=0;
                   <UploadIcon />
                 </Button>
               </label>
+              {files.sbiDebitScroll && (
+                <Typography variant="body2" sx={{ color: "#B72BF8", mt: 1, textAlign: 'center', fontFamily: "MyCustomFont,SourceSerif4_18pt" }}>
+                  {files.sbiDebitScroll.name}
+                </Typography>
+              )}
             </Grid>
           </Grid>
 
@@ -440,6 +445,11 @@ let count=0,cnt=0;
                     <UploadIcon />
                   </Button>
                 </label>
+                {files[key as keyof typeof files] && (
+                  <Typography variant="caption" sx={{ color: "#B72BF8", mt: 0.5, display: 'block', textAlign: 'center', fontFamily: "MyCustomFont,SourceSerif4_18pt" }}>
+                    {files[key as keyof typeof files]?.name}
+                  </Typography>
+                )}
               </Grid>
             ))}
           </Grid>
